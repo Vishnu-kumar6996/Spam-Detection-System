@@ -1,1 +1,109 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<style>
+.predict-box{
+    width:400px;
+    margin:60px auto;
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.predict-box h2{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:25px;
+    font-family:Arial, sans-serif;
+}
+
+.predict-box label{
+    font-size:15px;
+    font-weight:bold;
+    color:#333;
+}
+
+.predict-box textarea{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    box-sizing:border-box;
+    resize:none;
+    outline:none;
+}
+
+.predict-box textarea:focus{
+    border-color:#0d6efd;
+}
+
+.predict-box button{
+    width:100%;
+    padding:12px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.predict-box button:hover{
+    background:#0b5ed7;
+}
+
+.result{
+    margin-top:20px;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.spam{
+    background:#ffe5e5;
+    color:#d8000c;
+}
+
+.safe{
+    background:#e8f5e9;
+    color:#2e7d32;
+}
+</style>
+
+<div class="predict-box">
+
+<h2>SMS Spam Predictor</h2>
+
+<form method="POST">
+
+<label>Enter your text message here:</label><br>
+
+<textarea name="message" rows="5" required>{{ message }}</textarea>
+
+<button type="submit">Analyze Message</button>
+
+</form>
+
+{% if prediction %}
+<div class="result {% if prediction == 'SPAM' %}spam{% else %}safe{% endif %}">
+{% if prediction == 'SPAM' %}
+🚨 This message is likely <strong>SPAM</strong>.
+{% else %}
+✅ This message appears to be <strong>SAFE (Not Spam)</strong>.
+{% endif %}
+</div>
+{% endif %}
+
+</div>
+
+{% endblock %}
 
