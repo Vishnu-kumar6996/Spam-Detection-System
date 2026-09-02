@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<style>
+.login-box{
+    width:400px;
+    margin:60px auto;
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.login-box h2{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:25px;
+    font-family:Arial, sans-serif;
+}
+
+.login-box label{
+    font-size:15px;
+    font-weight:bold;
+    color:#333;
+}
+
+.login-box input{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+.login-box input:focus{
+    border-color:#0d6efd;
+}
+
+.login-box button{
+    width:100%;
+    padding:12px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-box button:hover{
+    background:#0b5ed7;
+}
+</style>
+
+<div class="login-box">
+
+    <h2>Login</h2>
+
+    <form method="POST">
+
+        <label>Username:</label><br>
+        <input type="text" name="username" required>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<style>
+.update-box{
+    width:400px;
+    margin:60px auto;
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.update-box h2{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:25px;
+    font-family:Arial, sans-serif;
+}
+
+.update-box label{
+    display:block;
+    font-size:15px;
+    font-weight:bold;
+    color:#333;
+    margin-bottom:6px;
+}
+
+.update-box input{
+    width:100%;
+    padding:12px;
+    margin-bottom:18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+.update-box input:focus{
+    border-color:#0d6efd;
+}
+
+.update-box button{
+    width:100%;
+    padding:12px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.update-box button:hover{
+    background:#0b5ed7;
+}
+
+.back-btn{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#0d6efd;
+    text-decoration:none;
+    font-weight:bold;
+}
+</style>
+
+<div class="update-box">
+
+<h2>Update User</h2>
+
+<form method="POST">
+
+<label>Name:</label>
+<input type="text" name="name" value="{{ user.name }}" required>
+
+<label>Email:</label>
+<input type="email" name="email" value="{{ user.email }}" required>
+
+<button type="submit">Update</button>
+
+</form>
+
+<a href="/" class="back-btn">⬅ Back</a>
+
+</div>
+
+{% endblock %}
